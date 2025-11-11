@@ -12,7 +12,7 @@ import (
 )
 
 type server struct {
-	gb.UnimplementedGatewayServiceServer
+	gb.UnimplementedAuthServiceServer
 }
 
 func (s *server) Login(ctx context.Context, req *gb.LoginRequest) (*gb.LoginResponse, error) {
@@ -29,7 +29,7 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 	gs := grpc.NewServer()
-	gb.RegisterGatewayServiceServer(gs, &server{})
+	gb.RegisterAuthServiceServer(gs, &server{})
 	fmt.Println("Auth service is listening on port 5001")
 	if err := gs.Serve(lis); err != nil {
 		log.Fatalf("Failed to serve: %v", err)
