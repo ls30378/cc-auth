@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 
-	gb "auth/generated/gateway"
+	gb "auth/generated/auth"
 
 	"google.golang.org/grpc"
 )
